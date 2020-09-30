@@ -1,21 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import { BiHome } from 'react-icons/bi'
+import Layout from '../../components/Layout'
 
 const Home = () => {
-    return(
-        <>
-        <ContainerHome>
-            Home
-        </ContainerHome>
-        </>
-    )
+  return (
+    <React.Fragment>
+      <Layout>
+        <HomeContainer>
+          <IconHome />Pagina Inicial
+        </HomeContainer>
+      </Layout>
+    </React.Fragment>
+  )
 }
 
 
 export default Home
 
-const ContainerHome = styled.div`
-background: red;
+const HomeContainer = styled.div`
+background: #ccc;
+`
+
+const IconHome = styled(BiHome)`
+color: red
 `
 
 

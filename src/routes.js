@@ -6,7 +6,6 @@ import {
     Dash as AdminDash
 } from './views'
 
-// ta dando erro nessa porra dessa linha do history
 
 const Routers = () => (
     <Router history={history}>
