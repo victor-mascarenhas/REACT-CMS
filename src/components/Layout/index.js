@@ -1,23 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header from './header'
+import Footer from './footer'
 
 const Layout = ({ children }) => {
     return (
         <React.Fragment>
-            <Header />
+            <HeaderContainer >
+                <Header />
+            </HeaderContainer >
             <Content>
                 {children}
             </Content>
-            <Footer />
+            <FooterContainer>
+                <Footer/>
+            </FooterContainer >
         </React.Fragment>
     )
 }
 
 export default Layout
 
-const Header = styled.div`
-background: blue;
-height: 200px;
+const HeaderContainer = styled.div`
+
 width: 100%
 `
 
@@ -27,7 +32,7 @@ min-height: 500px;
 `
 
 
-const Footer = styled.div`
+const FooterContainer = styled.div`
 background: green;
 height: 200px;
 width: 100%
