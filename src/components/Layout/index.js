@@ -34,7 +34,6 @@ min-height: 500px;
 
 const FooterContainer = styled.div`
 background: green;
-height: 200px;
-width: 100%
+width: 100%;
 
 `
