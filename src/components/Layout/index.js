@@ -27,13 +27,10 @@ width: 100%
 `
 
 const Content = styled.div`
-background: pink;
 min-height: 500px;
 `
 
 
 const FooterContainer = styled.div`
-background: green;
 width: 100%;
-
 `

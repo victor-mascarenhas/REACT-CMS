@@ -1,56 +1,55 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
-import {FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
-const Footer = () => {
+export default () => {
     return (
-        <>
+        <Footer>
             <Container>
                 <FooterInfo>
                     <Row>
-                        <Col md={3}>
+                        <Col md={4}>
                             <div className="title">Sobre Nós</div>
-                            <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
+                            <div className="aboutUs">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
                             </div>
 
                         </Col>
                         <Col md={4}>
-                        <div className="title">Endereço</div>
-                            <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
+                            <div className="title">Nossos Destaques</div>
+                            <div className="menu">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
                             </div>
                         </Col>
-                        <Col md={2}>
-                        <div className="title">Serviços</div>
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </Col>
-                        <Col md={3}>
-                        <div className="title">Contatos</div>                            
-                            <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
+                        <Col md={4}>
+                            <div className="title">Onde estamos</div>
+                            <div className="address">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat lorem diam, sed consequat ligula elementum sed. Mauris lacus purus, ultricies id facilisis eget, blandit vel massa.
                             </div>
                         </Col>
                     </Row>
                 </FooterInfo>
                 <Row>
                     <FooterSocial>
-                    <FaFacebook/>
-                    <FaInstagram/>
-        </FooterSocial>
+                        <FaFacebook />
+                        <FaInstagram />
+                    </FooterSocial>
                     <FooterCopy>
-                    © 2020 All Rights Reserved | Managed By Victor Mascarenhas
+                        © 2020 All Rights Reserved | Managed By Victor Mascarenhas
         </FooterCopy>
                 </Row>
             </Container>
-        </>
+        </Footer>
     )
 }
 
-export default Footer
+
+const Footer = styled.div`
+background-color: #f3ba15;
+padding: 10px 0;
+color: #eee;
+`
 
 const FooterInfo = styled.div`
 .title{
@@ -58,13 +57,26 @@ const FooterInfo = styled.div`
     font-weight: 600;
     padding: 5px 0;
     border-bottom: thin solid;
-    color: yellow;
+    color: green;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif; 
 }
 `
 const FooterSocial = styled.div`
 width: 100%;
+border-bottom: 1px dotted #ccc;
+padding: 5px;
+svg {
+    font-size: 30px;
+margin: 5px;
+&:hover{
+    color: red;
+    cursor: pointer;
+}}
 `
 
 const FooterCopy = styled.div`
 width: 100%;
+padding: 10px;
+text-align: center;
 `

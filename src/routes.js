@@ -1,17 +1,15 @@
 import React from 'react'
 import {Route, Router, Switch} from 'react-router-dom'
 import history from './config/history'
-import {
-    Home,
-    Dash as AdminDash
-} from './views'
+import Portal from './views/portal'
+import Admin from './views/admin'
 
 
 const Routers = () => (
     <Router history={history}>
-        <Switch>
-            <Route component={Home} exact path="/" />   
-            <Route component={AdminDash} path="/admin" />  
+        <Switch>            
+            <Route component={Admin} path="/admin" />
+            <Route component={Portal} path="/" />   
         </Switch>
     </Router>
 )

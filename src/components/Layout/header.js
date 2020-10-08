@@ -39,7 +39,11 @@ export default () => {
             <Container>
             <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="#home">
-                <GiTacos/>CHIDO TACOS!
+                    <Logo>
+                <GiTacos/> CHIDO 
+                <br />
+                <span>TACOS!</span>
+                </Logo>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
@@ -60,5 +64,34 @@ export default () => {
 
 
 const Header = styled.div`
-background-color: #111;
+background-color: #f3ba15;
+
+.nav-link:hover{
+    color: red !important;
+    font-weight: 500;
+}
+`
+const Logo = styled.div`
+font-size: 20px;
+font-weight: 600;
+margin: 0;
+font-family: 'Josefin Sans', sans-serif;
+
+svg{
+    color: black;
+    margin: -5px;
+}
+
+span{
+    color: red;
+    margin: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+
+
 `
