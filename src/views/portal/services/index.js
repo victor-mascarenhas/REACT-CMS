@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import TitlePage from '../../../components/titlePage'
 
 
 export default () => {
@@ -7,7 +8,7 @@ export default () => {
     <React.Fragment>
 
       <Services>
-        Services
+      <TitlePage title="Serviços" sub="Conheça nossos serviços"/>
       </Services>
 
     </React.Fragment>
@@ -17,7 +18,6 @@ export default () => {
 const Services = styled.div`
 height: 500px;
 display: block;
-color: red;
 `
 
 
