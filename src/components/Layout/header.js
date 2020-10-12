@@ -45,7 +45,7 @@ export default () => {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav >
                         {menu.map((item,i) => (
-                            <NavLink to={item.link} key={i}>
+                            <NavLink exact ={true} to={item.link} key={i}>
                             <Nav.Link as="div">{item.title}</Nav.Link>
                             </NavLink>   
                         ))}

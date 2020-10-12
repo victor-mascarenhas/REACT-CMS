@@ -7,6 +7,7 @@ import styled from 'styled-components'
 const BannerHome = () => {
     return (
         <Banner>
+            <h1> Esse é o banner </h1>
         </Banner>
     )
 }

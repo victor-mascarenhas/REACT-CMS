@@ -7,6 +7,7 @@ import styled from 'styled-components'
 const AboutHome = () => {
     return (
         <About>
+            
         </About>
     )
 }

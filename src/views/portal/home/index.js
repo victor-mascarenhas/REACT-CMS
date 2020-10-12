@@ -31,7 +31,6 @@ const Home = () => {
 export default Home
 
 const HomeContainer = styled.div`
-background: #ccc;
 `
 
 

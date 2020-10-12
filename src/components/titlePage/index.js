@@ -13,10 +13,11 @@ export default ({ title, sub }) => {
     )
 }
 
-const ContainerTitle = styled(Container)`
+const ContainerTitle = styled.div`
 background: gray;
 padding: 10px;
 border-bottom: 1px solid #f3ba15;
+width: 100%;
 `
 const Title = styled.div`
 color: #f3ba15;
