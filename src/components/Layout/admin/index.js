@@ -3,24 +3,18 @@ import '../../../assets/css/sb-admin-2.min.css'
 import Sidebar from './sidebar'
 import HeaderAdmin from './header'
 
-const LayoutAdmin = ({children}) => {
+const LayoutAdmin = ({children, Menu}) => {
     return(
         <>
          <div id="wrapper">
-        <Sidebar />
-        {/* Content Wrapper */}
+        <Sidebar Menu={Menu}/>
         <div id="content-wrapper" className="d-flex flex-column">
-          {/* Main Content */}
           <div id="content">
             <HeaderAdmin />
-            {/* Begin Page Content */}
             <div className="container-fluid">
                 {children}
               </div>
-            {/* /.container-fluid */}
           </div>
-          {/* End of Main Content */}
-          {/* Footer */}
           <footer className="sticky-footer bg-white">
             <div className="container my-auto">
               <div className="copyright text-center my-auto">
@@ -28,9 +22,7 @@ const LayoutAdmin = ({children}) => {
               </div>
             </div>
           </footer>
-          {/* End of Footer */}
         </div>
-        {/* End of Content Wrapper */}
       </div>
         </>
     )
