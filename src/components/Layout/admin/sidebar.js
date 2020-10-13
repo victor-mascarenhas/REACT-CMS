@@ -14,15 +14,7 @@ const sidebar = ({Menu}) => {
                     <div className="sidebar-brand-text mx-3">Chido Tacos!</div>
                 </a>
                 {/* Divider */}
-                <hr className="sidebar-divider my-0" />
-                {/* Nav Item - Dashboard */}
-                <li className="nav-item active">
-                    <a className="nav-link" href="index.html">
-                        <i className="fas fa-fw fa-tachometer-alt" />
-                        <span>Dashboard</span></a>
-                </li>
-                {/* Divider */}
-                <hr className="sidebar-divider" />
+                <hr className="sidebar-divider my-0" />               
                 
                 {Menu.map((item,i) => (
                     <ItemMenu key={i}>
