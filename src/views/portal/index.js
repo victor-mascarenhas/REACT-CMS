@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/Layout/index'
+import Layout from '../../components/Layout/portal/index'
 import {Route} from 'react-router-dom'
 
 import Home from './home/'
