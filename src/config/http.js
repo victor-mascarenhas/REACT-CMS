@@ -8,4 +8,8 @@ const http = axios.create({
 
 http.defaults.headers['Content-type'] = 'application/json'
 
+if(getToken()){
+    http.defaults.headers['x-auth-token'] = getToken();
+}
+
 export default http;
