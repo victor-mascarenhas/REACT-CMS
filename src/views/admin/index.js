@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import LayoutAdmin from '../../components/Layout/admin'
 import Dash from './dash'
+import Products from './products'
 import { FaImage, FaSwatchbook, FaTools, FaBuffer, FaTachometerAlt } from 'react-icons/fa'
 
 
@@ -28,7 +29,7 @@ const MenuItens = [
         name: "Produtos",
         path: '/products',
         icon: <FaSwatchbook />,
-        component: () => <h1>Produtos</h1>
+        component: () => <Products />
     },
     {
         name: "Serviços",

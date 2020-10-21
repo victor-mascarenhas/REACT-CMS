@@ -1,9 +1,12 @@
-import axios from 'axios'
+import Axios from 'axios'
+import { getToken } from './auth'
 
-const localUrlApi = 'http://localhost:3001'
+//const localUrlApi = 'http://localhost:4646'
 
-const http = axios.create({
-    baseURL: process.env.REACT_APP_API || localUrlApi
+const http = Axios.create({
+    baseURL:'https://chido-tacos.herokuapp.com/'
+//dando erro no process env enquanto  não deployado 
+    //baseURL: process.env.REACT_APP_API || localUrlApi
 })
 
 http.defaults.headers['Content-type'] = 'application/json'

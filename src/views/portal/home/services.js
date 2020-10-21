@@ -9,17 +9,15 @@ const ServicesHome = () => {
             <Container className="py-5">
                 <h2 className="text-center"> Serviços </h2>
                 <Row>
-                    <Col>
                     <ItemServ>
                         <h4>koe parceiro</h4>
                     </ItemServ>
-                    </Col>
-                    <Col>
                     <ItemServ>
                         <h4> suco de abacate </h4>
                     </ItemServ>
-                    </Col>
-                    <Col><ItemServ><h4>zé otario</h4></ItemServ></Col>
+                    <ItemServ>
+                        <h4>zé otario</h4>
+                    </ItemServ>
                 </Row>
             </Container>
         </Services>
@@ -34,11 +32,12 @@ width: 100%;
 background: #dff9fb;
 `
 
-const ItemServ = styled.div`
+const ItemServ = styled(Col)`
 background: gray;
 width: 100%;
 height: 300px;
 display: flex;
 justify-content: center;
 align-items: center;
+margin: 0 10px;
 `
