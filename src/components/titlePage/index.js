@@ -14,18 +14,18 @@ export default ({ title, sub }) => {
 }
 
 const ContainerTitle = styled.div`
-background: gray;
+background: #6BB38E;
 padding: 10px;
 border-bottom: 1px solid #f3ba15;
 width: 100%;
 `
 const Title = styled.div`
-color: #f3ba15;
+color: #541E35;
 font-family: 'Poppins', sans-serif;
 font-size: 30px;
 font-weight: 600;
 `
 const Sub = styled.div`
-color: #f3ba15;
+color: #541E35;
 font-family: 'Josefin Sans', sans-serif;
 `

@@ -1,4 +1,5 @@
 import React from 'react'
+import chidoLogo from '../../../assets/images/mexican-man_preview_rev_2.png'
 
 const HeaderAdmin = () => {
     return (
@@ -10,8 +11,8 @@ const HeaderAdmin = () => {
                 {/* Nav Item - User Information */}
                 <li className="nav-item dropdown no-arrow">
                   <div className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                    <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                    <span className="mr-2 d-none d-lg-inline text-gray-600 small" alt='placeholder'>Valerie Luna</span>
+                    <img className="img-profile rounded-circle" src={chidoLogo} alt='userimg'/>
                   </div>
                   {/* Dropdown - User Information */}
                   <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

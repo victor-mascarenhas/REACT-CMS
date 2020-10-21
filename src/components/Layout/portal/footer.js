@@ -46,9 +46,9 @@ export default () => {
 
 
 const Footer = styled.div`
-background-color: #f3ba15;
+background-color: #541E35;
 padding: 10px 0;
-color: #eee;
+color: #FFB43E;
 `
 
 const FooterInfo = styled.div`
@@ -57,7 +57,7 @@ const FooterInfo = styled.div`
     font-weight: 600;
     padding: 5px 0;
     border-bottom: thin solid;
-    color: green;
+    color: #541E35;
     margin-bottom: 10px;
     font-family: 'Poppins', sans-serif; 
 }
@@ -70,7 +70,7 @@ svg {
     font-size: 30px;
 margin: 5px;
 &:hover{
-    color: red;
+    color: #DF5D2E;
     cursor: pointer;
 }}
 `

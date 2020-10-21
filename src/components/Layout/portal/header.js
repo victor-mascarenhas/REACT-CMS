@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Navbar, Nav, Container} from 'react-bootstrap'
-import {GiTacos} from 'react-icons/gi'
 import {NavLink} from 'react-router-dom'
 
 export default () => {
@@ -36,9 +35,7 @@ export default () => {
             <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="/">
                     <Logo>
-                <GiTacos/> CHIDO 
-                <br />
-                <span>TACOS!</span>
+                        ¡CHIDO TACOS!            
                 </Logo>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -62,34 +59,40 @@ export default () => {
 
 
 const Header = styled.div`
-background-color: #f3ba15;
+background-color: #FFB43E;
 font-family: 'Poppins', sans-serif;
 
+
 .nav-link:hover{
-    color: red !important;
-    font-weight: 500;
+    color: #DF5D2E !important;
+    font-weight: 800;
     text-decoration: none !important;
+    letter-spacing: 3px;
 }
 `
 const Logo = styled.div`
-font-size: 20px;
-font-weight: 600;
-margin: 0;
+font-family: 'Lobster', cursive;
+letter-spacing: 1px;
+//max-height:50px;
+//max-width: 50px;
+font-size: 38px;
+color: #541E35;
+//font-weight: 600;
 
-svg{
-    color: black;
-    margin: -5px;
-}
+//svg{
+//    color: black;
+//    margin: -5px;
+//}
 
-span{
-    color: red;
-    margin: 0;
-    font-size: 20px;
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    letter-spacing: 4px;
-}
+//span{
+//    color: red;
+//    margin: 0;
+//    font-size: 20px;
+//    text-transform: uppercase;
+//    display: block;
+//    text-align: center;
+//    letter-spacing: 4px;
+//}
 
 
 

@@ -16,11 +16,10 @@ const AuthRoute = ({ ...rest }) => {
 
 const Routers = () => (
     <Router history={history}>
-        <Switch>            
+        <Switch>        
             <AuthRoute component={Admin} path="/admin" />
-            <Route exact component={Login} path="/login" />   
-            <Route component={Portal} path="/" />   
-            
+            <Route exact component={Login} path="/login" />               
+            <Route component={Portal} path="/" />           
         </Switch>
     </Router>
 )
