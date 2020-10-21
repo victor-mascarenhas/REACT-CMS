@@ -64,10 +64,10 @@ font-family: 'Poppins', sans-serif;
 
 
 .nav-link:hover{
-    color: #DF5D2E !important;
-    font-weight: 800;
+    background-color: #541E35 !important;
+    //font-weight: 800;
     text-decoration: none !important;
-    letter-spacing: 3px;
+    //letter-spacing: 3px;
 }
 `
 const Logo = styled.div`

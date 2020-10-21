@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Banner from './banner'
 import About from './about'
-import Menu from './menu'
+import Services from './services'
 import Products from './products'
 import Info from './info'
 
@@ -20,7 +20,7 @@ const Home = () => {
           <Banner/>
           <Info />
           <About/>
-          <Menu/>
+          <Services/>
           <Products/>
         </HomeContainer>      
     </React.Fragment>
