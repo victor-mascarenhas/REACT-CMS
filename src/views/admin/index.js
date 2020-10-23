@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import LayoutAdmin from '../../components/Layout/admin'
 import Dash from './dash'
 import Products from './products'
+import Category from './category'
 import { FaImage, FaSwatchbook, FaTools, FaBuffer, FaTachometerAlt } from 'react-icons/fa'
 
 
@@ -17,7 +18,7 @@ const MenuItens = [
         name: "Categorias",
         path: '/categories',
         icon: <FaBuffer />,
-        component: () => <h1>Categorias</h1>
+        component: () => <Category/>
     },
     {
         name: "Banner",
