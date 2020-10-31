@@ -92,7 +92,7 @@ const ProductsList = (props) => {
                             <BodyItem>{prd.price}</BodyItem>
                             <BodyItem>{prd.discount_price}</BodyItem>
                             <BodyItem>{prd.discount_price_percent}</BodyItem>
-                            <BodyItem>  <Button variant="info" size="sm" onClick={() => props.edit(prd)}> <FiEdit/> </Button> | <Button variant="danger" size="sm" onClick={() => deleteProduct(prd)}> <FiTrash2/> </Button></BodyItem>
+                            <BodyItem>  <Button variant="info"  onClick={() => props.edit(prd)}> <FiEdit/> </Button> | <Button variant="danger" onClick={() => deleteProduct(prd)}> <FiTrash2/> </Button></BodyItem>
                         </tr>
                     ))}
 

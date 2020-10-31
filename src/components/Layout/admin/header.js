@@ -1,7 +1,9 @@
 import React from 'react'
 import chidoLogo from '../../../assets/images/mexican-man_preview_rev_2.png'
+import { getUser } from '../../../config/auth'
 
 const HeaderAdmin = () => {
+  console.log(getUser())
     return (
         <>
         {/* Topbar */}
@@ -11,7 +13,7 @@ const HeaderAdmin = () => {
                 {/* Nav Item - User Information */}
                 <li className="nav-item dropdown no-arrow">
                   <div className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small" alt='placeholder'>Valerie Luna</span>
+                    <span className="mr-2 d-none d-lg-inline text-gray-600 small" alt='placeholder'>{getUser().name}</span>
                     <img className="img-profile rounded-circle" src={chidoLogo} alt='userimg'/>
                   </div>
                   {/* Dropdown - User Information */}

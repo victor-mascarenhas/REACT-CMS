@@ -3,6 +3,7 @@ import { delCategories, getCategories } from '../../services/admin'
 import { Table, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
+import { FiTrash2, FiEdit} from 'react-icons/fi'
 
 
 const CategoryList = (props) => {
@@ -69,7 +70,7 @@ const CategoryList = (props) => {
 
     return (
         <>
-            <Table striped bordered hover>
+            <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                         <TableH>Nome</TableH>
@@ -79,8 +80,8 @@ const CategoryList = (props) => {
                 <tbody>
                     {sortCategoriesByName.map((ctg, i) => (
                         <tr key={i}>
-                            <td>{ctg.name}</td>
-                            <td> <Button variant="info" size="sm" onClick={() => props.edit(ctg)}> Editar </Button> | <Button variant="danger" size="sm" onClick={() => deleteCategory(ctg)}> Excluir </Button></td>
+                            <BodyItem>{ctg.name}</BodyItem>
+                            <BodyItem> <Button variant="info" onClick={() => props.edit(ctg)}> <FiEdit/> </Button> | <Button variant="danger" onClick={() => deleteCategory(ctg)}> <FiTrash2/> </Button></BodyItem>
                         </tr>
                     ))}
 
@@ -100,5 +101,11 @@ color: #eee;
 
 :nth-child(1){
     width: 80%
+}
+`
+
+const BodyItem = styled.td`
+:nth-child(2){
+    text-align: center; font-size: 20px;
 }
 `

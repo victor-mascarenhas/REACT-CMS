@@ -1,17 +1,31 @@
 const TOKEN_KEY = "x-auth-token"
-const getToken = () => localStorage.getItem(TOKEN_KEY)
-const saveToken = (token) => localStorage.setItem(TOKEN_KEY, token)
+const getToken = () => {
+   const data = JSON.parse(localStorage.getItem(TOKEN_KEY))
+    if (data && data.token) {
+        return data.token
+    }
+    return false
+}
+const getUser = () => {
+    const data = JSON.parse(localStorage.getItem(TOKEN_KEY))
+    if (data && data.user) {
+        return data.user
+    }
+    return false
+ }
+const saveToken = (data) => localStorage.setItem(TOKEN_KEY, JSON.stringify(data))
 const removeToken = () => localStorage.removeItem(TOKEN_KEY)
 
 
 const isAuthenticated = () => {
     
-    return getToken() !==  null
+    return getToken() !==  false
 }
 
 export {
     isAuthenticated,
     getToken,
     saveToken,
-    removeToken
+    removeToken,
+    getUser
 }

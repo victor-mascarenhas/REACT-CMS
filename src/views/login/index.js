@@ -35,7 +35,7 @@ export default () => {
         const { data } = await auth(form)
         const { token } = data
         http.defaults.headers["x-auth-token"] = token;
-        saveToken(token)
+        saveToken(data)
         history.push('/admin')
 
       }catch(err){
