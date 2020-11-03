@@ -5,7 +5,7 @@ import history from './history'
 //const localUrlApi = 'http://localhost:4646'
 
 const http = Axios.create({
-    baseURL:'http://localhost:4646'
+    baseURL:'https://chido-tacos.herokuapp.com/'
 //dando erro no process env enquanto  não deployado 
     //baseURL: process.env.REACT_APP_API || localUrlApi
 })
