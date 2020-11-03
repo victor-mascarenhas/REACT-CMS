@@ -88,7 +88,7 @@ const ProductsList = (props) => {
                         <tr key={i}>
                             <BodyItem>{prd.status ? <AiOutlineCheckCircle/> : <AiOutlineCloseCircle/> }</BodyItem>
                             <BodyItem>{prd.title}</BodyItem>
-                            <BodyItem>{prd.category}</BodyItem>
+                            <BodyItem>{prd.category?.name}</BodyItem>
                             <BodyItem>{prd.price}</BodyItem>
                             <BodyItem>{prd.discount_price}</BodyItem>
                             <BodyItem>{prd.discount_price_percent}</BodyItem>

@@ -3,7 +3,6 @@ import chidoLogo from '../../../assets/images/mexican-man_preview_rev_2.png'
 import { getUser } from '../../../config/auth'
 
 const HeaderAdmin = () => {
-  console.log(getUser())
     return (
         <>
         {/* Topbar */}
