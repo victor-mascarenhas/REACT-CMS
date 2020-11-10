@@ -71,10 +71,11 @@ const ProductsList = (props) => {
 
     return (
         <>
-            <ProdTable striped bordered hover size="sm">
+            <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                         <THItem>Status</THItem>
+                        <THItem>Highlight</THItem>
                         <THItem>Nome</THItem>
                         <THItem>Categoria</THItem>
                         <THItem>Preço</THItem>
@@ -85,19 +86,20 @@ const ProductsList = (props) => {
                 </thead>
                 <tbody>
                     {sortProductsByName.map((prd, i) => (
-                        <tr key={i}>
+                        <NewTr key={i}>
                             <BodyItem>{prd.status ? <AiOutlineCheckCircle/> : <AiOutlineCloseCircle/> }</BodyItem>
+                            <BodyItem>{prd.highlight ? <AiOutlineCheckCircle/> : <AiOutlineCloseCircle/> }</BodyItem>
                             <BodyItem>{prd.title}</BodyItem>
                             <BodyItem>{prd.category?.name}</BodyItem>
                             <BodyItem>{prd.price}</BodyItem>
                             <BodyItem>{prd.discount_price}</BodyItem>
                             <BodyItem>{prd.discount_price_percent}</BodyItem>
-                            <BodyItem>  <Button variant="info"  onClick={() => props.edit(prd)}> <FiEdit/> </Button> | <Button variant="danger" onClick={() => deleteProduct(prd)}> <FiTrash2/> </Button></BodyItem>
-                        </tr>
+                            <BodyItem>  <NewButton variant="info"  onClick={() => props.edit(prd)}> <FiEdit/> </NewButton>   <Button variant="danger" onClick={() => deleteProduct(prd)}> <FiTrash2/> </Button></BodyItem>
+                        </NewTr>
                     ))}
 
                 </tbody>
-            </ProdTable>
+            </Table>
         </>
     )
 
@@ -105,22 +107,37 @@ const ProductsList = (props) => {
 }
 export default ProductsList
 
-const ProdTable = styled(Table)`
-`
 const THItem = styled.th`
 background: #666;
 color: #eee;
-
+:nth-child(7){
+    text-align: center;
+}
 `
-
+const NewTr = styled.tr`
+background-color: #eee !important;
+:hover{
+    color: #eee !important;
+    background-color: #6BB38E !important;
+}
+`
 
 const BodyItem = styled.td`
     :nth-child(1){  width: 5%; text-align: center; font-size: 20px; }
-    :nth-child(2){  width: 30%; }
-    :nth-child(3){  width: 15%; }
-    :nth-child(4){  width: 10%; }
+    :nth-child(2){  width: 5%; text-align: center; font-size: 20px; }
+    :nth-child(3){  width: 30%; }
+    :nth-child(4){  width: 15%; }
     :nth-child(5){  width: 10%; }
     :nth-child(6){  width: 10%; }
-    :nth-child(7){  width: 20%; text-align: center; font-size: 20px; }
+    :nth-child(7){  width: 10%; }
+    :nth-child(8){  width: 15%; text-align: center; font-size: 20px; }
+`
+const NewButton = styled(Button)`
+background-color: #A4C972;
+border: none;
+:hover{
+    color: #eee !important;
+    background-color: #DF5D2E !important;
+}
 `
 

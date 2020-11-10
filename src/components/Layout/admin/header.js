@@ -1,46 +1,48 @@
 import React from 'react'
 import chidoLogo from '../../../assets/images/mexican-man_preview_rev_2.png'
-import { getUser } from '../../../config/auth'
+import { getUser, removeToken } from '../../../config/auth'
+import {Dropdown} from 'react-bootstrap'
+import styled from 'styled-components'
 
 const HeaderAdmin = () => {
-    return (
-        <>
-        {/* Topbar */}
-        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-              {/* Topbar Navbar */}
-              <ul className="navbar-nav ml-auto">            
-                {/* Nav Item - User Information */}
-                <li className="nav-item dropdown no-arrow">
-                  <div className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small" alt='placeholder'>{getUser().name}</span>
-                    <img className="img-profile rounded-circle" src={chidoLogo} alt='userimg'/>
-                  </div>
-                  {/* Dropdown - User Information */}
-                  <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                    <div className="dropdown-item">
-                      <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
-                      Profile
-                    </div>
-                    <div className="dropdown-item" >
-                      <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" />
-                      Settings
-                    </div>
-                    <div className="dropdown-item" >
-                      <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400" />
-                      Activity Log
-                    </div>
-                    <div className="dropdown-divider" />
-                    <div className="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                      <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
-                      Logout
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-            {/* End of Topbar */}
-        </>
-    )
+
+const logout = () => {
+  removeToken()
+}
+
+  return (
+    <>
+      <NewHeader className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <ul className="navbar-nav ml-auto">
+          <Dropdown>
+            <User variant="info" id="dropdown-basic">
+              
+              <img src={chidoLogo} height="50" width="50" alt="logo"/>
+              {getUser().name}
+              
+  </User>
+
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={logout} href="/login">Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </ul>
+      </NewHeader>
+    </>
+  )
 }
 
 export default HeaderAdmin
+
+const NewHeader = styled.nav`
+color: #FFB43E;
+background-color: #541E35 !important;
+`
+const User = styled(Dropdown.Toggle)`
+background-color: #A4C972;
+border: none;
+:hover{
+    color: #eee !important;
+    background-color: #DF5D2E !important;
+}
+`

@@ -24,6 +24,7 @@ const CategoryList = (props) => {
         return () => get = () => { };
     }, [isUpdate])
 
+   
     //Delete Item
     const deleteCategory = async (ctg) => {
 
@@ -73,16 +74,16 @@ const CategoryList = (props) => {
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
-                        <TableH>Nome</TableH>
-                        <TableH>Ações</TableH>
+                        <THItem>Categorias cadastradas</THItem>
+                        <THItem>Ações</THItem>
                     </tr>
                 </thead>
                 <tbody>
                     {sortCategoriesByName.map((ctg, i) => (
-                        <tr key={i}>
+                        <NewTr key={i}>
                             <BodyItem>{ctg.name}</BodyItem>
-                            <BodyItem> <Button variant="info" onClick={() => props.edit(ctg)}> <FiEdit/> </Button> | <Button variant="danger" onClick={() => deleteCategory(ctg)}> <FiTrash2/> </Button></BodyItem>
-                        </tr>
+                            <BodyItem> <NewButton variant="info" onClick={() => props.edit(ctg)}> <FiEdit/> </NewButton>   <Button variant="danger" onClick={() => deleteCategory(ctg)}> <FiTrash2/> </Button></BodyItem>
+                        </NewTr>
                     ))}
 
                 </tbody>
@@ -94,18 +95,38 @@ const CategoryList = (props) => {
 }
 export default CategoryList
 
-const TableH = styled.th`
+
+const THItem = styled.th`
 background: #666;
 color: #eee;
-
-
 :nth-child(1){
     width: 80%
+};
+:nth-child(2){
+    text-align: center;
+}
+`
+
+const NewTr = styled.tr`
+background-color: #eee !important;
+:hover{
+    color: #eee !important;
+    background-color: #6BB38E !important;
 }
 `
 
 const BodyItem = styled.td`
 :nth-child(2){
-    text-align: center; font-size: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+`
+
+const NewButton = styled(Button)`
+background-color: #A4C972;
+border: none;
+:hover{
+    color: #eee !important;
+    background-color: #DF5D2E !important;
 }
 `

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { postProducts, getCategories } from '../../services/admin'
+import { postProducts, getCategories, patchProducts } from '../../services/admin'
 import { Form, Spinner, Button, ProgressBar, ToggleButton, ButtonGroup } from 'react-bootstrap'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import styled from 'styled-components'
 
 
 //Create Item
 const ProductsForm = (props) => {
 
+    const isEdit = Object.keys(props.edit).length > 0
+    const typeReq = (data) => isEdit ? patchProducts(props.edit._id, data) : postProducts(data)
+    
     const [categories, setCategories] = useState([])
 
     //Get Categories List
@@ -21,12 +25,12 @@ const ProductsForm = (props) => {
         return () => get = () => { };
     }, [])
 
-
+    const [updatePhoto, setUpdatePhoto] = useState(false)
     const [loading, setLoading] = useState(false)
     const [progress, setProgress] = useState(0)
     const [form, setForm] = useState({
-        highlight: false,
-        status: true
+        ...props.edit,
+        category: props.edit?.category?._id || undefined
     })
 
 
@@ -45,6 +49,14 @@ const ProductsForm = (props) => {
             })
         }
         
+    }
+
+    const removePhoto = () => {
+        setUpdatePhoto(true)
+        setForm({
+            ...form,
+            photo: ""
+        })
     }
 
     const isSubmitValid = () => form.title && form.description && form.complete_description && form.category && form.price && form.discount_price && form.discount_price_percent
@@ -68,7 +80,7 @@ const ProductsForm = (props) => {
                 }
             }
 
-            postProducts(data, config)
+            typeReq(data, config)
                 .then((res) => Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -92,7 +104,7 @@ const ProductsForm = (props) => {
 
             setForm({})
             setLoading(false)
-            setTimeout(() => props.create(), 1500)
+            setTimeout(() => props.create(), 2500)
 
 
         }
@@ -150,12 +162,16 @@ return (
 
             <Form.Group>
                 <Form.Label>Imagem do produto</Form.Label>
-                <br/>
-                <input
+                {isEdit && !updatePhoto? (<Thumb>
+                <img src={form.photo} alt="thumbnail" />
+                <span onClick={removePhoto}>Remover</span>
+                </Thumb>) : (<input
                 type="file"
                     onChange={handleChange}
                     name="photo"
-                />
+                />)} 
+                <br/>
+                
             </Form.Group>
 
             <Form.Group>
@@ -209,3 +225,19 @@ return (
 
 
 export default ProductsForm
+
+const Thumb = styled.div`
+display: flex; 
+flex-direction: column;
+img{
+max-height: 200px;
+max-width: 200px;
+}
+span{
+    color:red;
+    &:hover{
+        cursor:pointer;
+    }
+    
+}
+`

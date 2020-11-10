@@ -1,28 +1,48 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
+import styled from 'styled-components'
 
 import List from '../../components/products/list'
 import Form from '../../components/products/form'
+import Modal from '../../components/modal/index'
 
 const Products = () => {
 
-    const [isForm, setForm] = useState(false)
-    const [patch, setPatch] = useState({})
+    const [isPatch, setPatch] = useState({})
+    const [show, setShow] = useState(false);
 
-    const changePage = () => setForm(!isForm)
-    const expEdit = (ctg) => {
-        setForm(true)
-        setPatch(ctg)
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const expEdit = (prd) => {
+        setShow(true)
+        setPatch(prd)
     }
     
+    //render
     return(
         <>
-            <Button size="sm" onClick={() => setForm(!isForm)}>{isForm ? "Lista" : "Novo"}</Button>
+            <NewButton variant="primary" onClick={handleShow}>
+                Novo produto
+            </NewButton>
             <hr />
-            {isForm ? <Form create={changePage} edit={patch} /> : <List edit={expEdit}/>}
-        </>
 
+            {show &&
+                <Modal show={show} handleClose={handleClose}>
+                    <Form create={handleClose} edit={isPatch} />
+                </Modal>
+            }
+            <List edit={expEdit}/>
+        </>
 
     )}
 
     export default Products
+
+    const NewButton = styled(Button)`
+background-color: #A4C972;
+border: none;
+:hover{
+    color: #eee !important;
+    background-color: #DF5D2E !important;
+}`

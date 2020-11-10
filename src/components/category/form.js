@@ -37,14 +37,13 @@ const CategoryForm = (props) => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: `Categoria ${isEdit ? 'atualizada' : 'criada' }criada com sucesso!`,
+                    title: `Categoria ${isEdit ? 'atualizada' : 'criada' } com sucesso!`,
                     showConfirmButton: false,
                     timer: 1500
                 })
 
                 setForm({})
-                setLoading(false)
-                //setUpdate(true)
+                setLoading(false)                
                 setTimeout(() => props.create(), 1500)
 
             } catch (err) {
