@@ -73,27 +73,6 @@ font-family: 'Poppins', sans-serif;
 const Logo = styled.div`
 font-family: 'Lobster', cursive;
 letter-spacing: 1px;
-//max-height:50px;
-//max-width: 50px;
 font-size: 38px;
 color: #541E35;
-//font-weight: 600;
-
-//svg{
-//    color: black;
-//    margin: -5px;
-//}
-
-//span{
-//    color: red;
-//    margin: 0;
-//    font-size: 20px;
-//    text-transform: uppercase;
-//    display: block;
-//    text-align: center;
-//    letter-spacing: 4px;
-//}
-
-
-
 `

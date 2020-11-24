@@ -16,8 +16,8 @@ const AboutHome = () => {
                 </Col>
                 <Col>
                 <div className="description"> 
-                <h1>About description</h1>
-                <p> lorem imdfasiufhuasifhasifhuaifhfasuifhsisfuhauhfaufhsuifaiu </p>
+                <h1>Sobre nós</h1>
+                <p>Fornecemos uma completa imersão na cultura mexicana, com ambiente temático e culinária típica do país.</p>
                 </div>
                 </Col>
             </Row>
@@ -31,8 +31,11 @@ export default AboutHome
 const About = styled.div`
 min-height: 370px;
 width: 100%;
-background: #ffbe76;
-color: #eee;
+color: #FFB43E;
+font-weight: 600;
+font-size: 20px;
+margin: 1rem 0 1rem 0 ;
+
 
 .description{
     padding: 20px;
@@ -40,6 +43,10 @@ color: #eee;
     flex-direction: column;
     justify-content:center;
     align-items: center;
+}
+
+h1{
+margin-bottom: 5rem;
 }
 
 img{

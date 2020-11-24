@@ -4,6 +4,8 @@ import { Form, Spinner, Button, ProgressBar, ToggleButton, ButtonGroup } from 'r
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 import styled from 'styled-components'
+import currencyConfig from '../../config/currency'
+import IntlCurrencyInput from 'react-intl-currency-input'
 
 
 //Create Item
@@ -56,6 +58,35 @@ const ProductsForm = (props) => {
         setForm({
             ...form,
             photo: ""
+        })
+    }
+
+    const handlePrice = (event, value, maskedValue) => {
+        event.preventDefault();
+        setForm({
+            ...form,
+            "price": value
+        })
+    }
+
+    const handlePriceDiscount = (event, value, maskedValue) => {
+        event.preventDefault();
+        const percent = value / form.price * 100;
+        const percentAllow = percent >= 100 ? 100 : percent
+        setForm({
+            ...form,
+            "discount_price": value,            
+            "discount_price_percent": Math.round(percentAllow)
+        })
+    }
+
+    const handlePercentDiscount = (attr) => {
+        const desc = attr.target.value;
+        const discountValue = Math.round(form.price * (desc / 100))
+        setForm({
+            ...form,
+            "discount_price": form.price - discountValue,
+            "discount_price_percent": desc >= 0 && desc <= 100 ? desc : 0
         })
     }
 
@@ -114,7 +145,7 @@ const ProductsForm = (props) => {
 
 return (
     <>
-        <h1> Adicionar novo produto</h1>
+        {isEdit ? <h1> Editar produto</h1> : <h1> Adicionar novo produto</h1>}
 
         <div>
             <Form.Group >
@@ -146,19 +177,21 @@ return (
             <hr />
             <h5> Valores </h5>
             <Form.Group >
-                <Form.Label>Preço</Form.Label>
-                <Form.Control type="text" onChange={handleChange} name="price" value={form.price || ""} placeholder="" />
+                <Form.Label>Preço</Form.Label>                
+                <IntlCurrencyInput className="form-control" currency="BRL" config={currencyConfig} name="price" value={form.price || ""} placeholder=""
+            onChange={handlePrice} />
             </Form.Group>
 
             <Form.Group >
-                <Form.Label>Preço com desconto</Form.Label>
-                <Form.Control type="text" onChange={handleChange} name="discount_price" value={form.discount_price || ""} placeholder="" />
+                <Form.Label>Preço com desconto</Form.Label>               
+                <IntlCurrencyInput disabled={!form.price} className="form-control" currency="BRL" config={currencyConfig} name="discount_price" value={form.discount_price || ""} placeholder=""
+            onChange={handlePriceDiscount} />
             </Form.Group>
 
             <Form.Group >
                 <Form.Label>% de desconto</Form.Label>
-                <Form.Control type="text" onChange={handleChange} name="discount_price_percent" value={form.discount_price_percent || ""} placeholder="" />
-            </Form.Group>
+                <Form.Control type="number" disabled={!form.price} onChange={handlePercentDiscount} name="discount_price_percent" max="100" min="0" value={form.discount_price_percent || ""} placeholder="" />
+                </Form.Group>
 
             <Form.Group>
                 <Form.Label>Imagem do produto</Form.Label>
