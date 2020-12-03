@@ -2,6 +2,9 @@
 
 Um portal para restaurantes com gerenciador de produtos feito em React.
 
+API URL:
+https://chido-tacos.herokuapp.com/
+
 Portal View:
 https://chido-tacos.vercel.app
 
