@@ -4,7 +4,7 @@ import LayoutAdmin from '../../components/Layout/admin'
 import Dash from './dash'
 import Products from './products'
 import Category from './category'
-import { FaImage, FaSwatchbook, FaTools, FaBuffer, FaTachometerAlt } from 'react-icons/fa'
+import { FaSwatchbook, FaTools, FaBuffer, FaTachometerAlt } from 'react-icons/fa'
 
 
 const MenuItens = [
@@ -19,12 +19,6 @@ const MenuItens = [
         path: '/categories',
         icon: <FaBuffer />,
         component: () => <Category/>
-    },
-    {
-        name: "Banner",
-        path: '/Banner',
-        icon: <FaImage />,
-        component: () => <h1>Banner</h1>
     },
     {
         name: "Produtos",

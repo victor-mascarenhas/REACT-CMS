@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Tab, Tabs } from 'react-bootstrap'
+import { Container, Tab, Tabs, CardColumns, Card } from 'react-bootstrap'
 import styled from 'styled-components'
 import TitlePage from '../../../components/titlePage'
 import { getCategories, getProducts } from '../../../services/admin'
+import Loading from '../../../components/loading/loading'
 
 
 export default () => {
@@ -18,63 +19,77 @@ export default () => {
       setCategories(c.data)
       setProducts(p.data)
 
-  })()
+    })()
 
-  return () => () => {}
-},[])
+    return () => () => { }
+  }, [])
 
-const mountProducts = (prod) => {
+  const mountProducts = (prod) => {
 
-  const prods = products.filter(item => item.category._id === prod._id)
+    const prods = products.filter(item => item.category._id === prod._id)
 
+    return (
+      <CardColumns>
+        {prods.length === 0
+          ? <div> Sem Produtos </div>
+          : (
+            prods.map((prd, i) =>
+              <Card key={i}>
+                <Card.Img variant="top" src={prd.photo} />
+                <Card.Body>
+                  <Card.Title>{prd.title}</Card.Title>
+                  <Card.Text>
+                    {prd.complete_description}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          )}
+      </CardColumns>
+
+
+    )
+  }
+
+  const isEmpty = categories.length === 0
+  
   return (
-    <ul>
-      {prods.length === 0 
-      ?<div> Sem Produtos </div>
-    : (
-      prods.map((prd, i) => <li key={i}>{prd.title}</li>)
-    )}
-    </ul>
-  )
-} 
+    <React.Fragment>
 
-return (
-  <React.Fragment>
+      <Product>
+        <TitlePage title="Produtos" sub="Conheça nossos produtos" />
 
-    <Product>
-      <TitlePage title="Produtos" sub="Conheça nossos produtos" />
-
-      <Container>
-        <TabBox defaultActiveKey={0} id="uncontrolled-tab-example">
-
-          {categories.map((cat, i) => (
-            <Tab eventKey={i} title={cat.name}>
-            {mountProducts(cat)}
-        </Tab>
-          ))}
+        <Container>
+        
           
-        </TabBox>
-      </Container>
-    </Product>
+          <TabBox defaultActiveKey={0} id="uncontrolled-tab-example">
+            {categories.map((cat, i) => (
+              <Tab eventKey={i} title={cat.name}>
+                {mountProducts(cat)}
+              </Tab>
+            ))}
+             
+          </TabBox>
+          <Loading show={isEmpty} />  
+          
+        </Container>
+      </Product>
 
-  </React.Fragment>
-)
+    </React.Fragment>
+  )
 }
 
 const Product = styled.div`
-height: 500px;
+min-height: 500px;
 display: block;
 .tab-content{
-  background: #eee !important;
 }
 
 `
 
 const TabBox = styled(Tabs)`
 background: #fff;
+margin-bottom: 1rem;
+margin-top: 1rem;
 `
-
-
-
-
 

@@ -10,7 +10,7 @@ const ServicesHome = () => {
     return (
         <Services>
             <Container className="py-5">
-                <h2 className="text-center"> Serviços </h2>
+                <h2 className="text-center"> Sobre nossos serviços </h2>
                 <Row>
                     <ItemServ>
                         <Icons>
@@ -42,6 +42,10 @@ const Services = styled.div`
 height: 400px;
 width: 100%;
 color: #FFB43E;
+
+h2{
+    padding-bottom: 2rem;
+}
 `
 
 const ItemServ = styled(Col)`

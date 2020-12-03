@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TitlePage from '../../../components/titlePage'
-import { Container, Row, Col} from 'react-bootstrap'
+import { Container} from 'react-bootstrap'
 
 
 export default () => {
@@ -12,12 +12,9 @@ export default () => {
       <TitlePage title="Serviços" sub="Conheça nossos serviços"/>
 
       <Container>
-        <Row>
-          <ServiceItem>First</ServiceItem>
-          <ServiceItem>Second</ServiceItem>
-          <ServiceItem>Third</ServiceItem>
-          <ServiceItem>Fourth</ServiceItem>
-        </Row>
+      <Description>
+        <h1>Em Breve!!!</h1>
+      </Description>
       </Container>
 
       </Services>
@@ -30,11 +27,21 @@ const Services = styled.div`
 height: 500px;
 display: block;
 `
-const ServiceItem = styled(Col)`
-width: 20%;
-background: red;
+
+const Description = styled.div`
+
 height: 200px;
-margin:10px;
+background: #fff4;
+width: 100%;
+
+h1{
+  color: #FFB43E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 40px;
+}
 `
 
 
