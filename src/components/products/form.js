@@ -115,7 +115,7 @@ const ProductsForm = (props) => {
                 .then((res) => Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: `Produto criado com sucesso!`,
+                    title: `Produto ${isEdit ? "editado" : "criado" } com sucesso!`,
                     showConfirmButton: false,
                     timer: 1500
                 }))
