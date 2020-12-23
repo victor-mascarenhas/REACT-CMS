@@ -24,7 +24,7 @@ const CategoryForm = (props) => {
         })
     }
 
-    const isSubmitValid = () => form.name && form.icon
+    const isSubmitValid = () => form.name 
 
     const submitCtg = async (e) => {
         e.preventDefault()
@@ -72,10 +72,10 @@ const CategoryForm = (props) => {
                     <Form.Control type="text" onChange={handleChange} name="name" value={form.name || ""} placeholder="" />
                 </Form.Group>
 
-                <Form.Group controlId="formCategoryIcon">
+                {/* <Form.Group controlId="formCategoryIcon">
                     <Form.Label>Icone URL</Form.Label>
                     <Form.Control type="text" onChange={handleChange} name="icon" value={form.icon || ""} placeholder="" />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button onClick={submitCtg} disabled={!isSubmitValid()} variant="primary" type="submit">
                     {loading ? (
